@@ -33,9 +33,28 @@
             </div>
             <!-- show all -->
             <div id="show-all-container" class="hidden text-center my-8">
-                <button onclick=" handleShowAll()" class="btn btn-accent">Show All</button>
+                <button onclick="handleShowAll()" class="btn btn-accent">Show All</button>
             </div>
         </section>
+        <!-- show details modal -->
+        <!-- Open the modal using ID.showModal() method -->
+
+<dialog id="showDetailsModal" class="modal modal-bottom sm:modal-middle ">
+  <div class="modal-box bg-cyan-100">
+    <h3 id="phone-name" class="font-bold text-3xl flex justify-center"></h3>
+    <div id="show-detail-container" class="flex justify-center items-center flex-col ">
+      
+    </div>
+    <p class="py-4" id="modal-details"></p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn bg-indigo-400">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
     </main>
     <footer>
 
