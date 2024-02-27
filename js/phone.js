@@ -1,24 +1,27 @@
-const loadPhone=async (searchPhone)=>{
+const loadPhone=async (searchPhone,isShowAll)=>{
 const res=await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchPhone}`)
 const data=await res.json();
 const phones=data.data;
-displayPhones(phones);
+displayPhones(phones,isShowAll);
 
 }
 
-const displayPhones=phones=>{
+const displayPhones=(phones,isShowAll)=>{
     const phoneContainer=document.getElementById("phone-container");
     phoneContainer.innerText='';
     console.log(phones.length);
     const showAllContainer=document.getElementById("show-all-container");
 
-    if (phones.length>12) {
-        showAllContainer.classList.remove("hidden")
+    if (phones.length>12 && !isShowAll) {
+        showAllContainer.classList.remove("hidden");
+        
     }
     else{
         showAllContainer.classList.add("hidden")
     }
-    phones=phones.slice(0,12);
+   if (!isShowAll) {
+    phones=phones.slice(0,12);    
+   }
   phones.forEach(phone => {
   
    const phoneCard=document.createElement('div');
@@ -40,11 +43,11 @@ const displayPhones=phones=>{
  });
  loadingDots(false);
 }
-const handleSearch=()=>{
+const handleSearch=(isShowAll)=>{
     loadingDots(true);
     const searchField=document.getElementById("searchField");
     const searchText=searchField.value;
-    loadPhone(searchText);
+    loadPhone(searchText,isShowAll);
   
 }
 const loadingDots=(isLoading)=>{
@@ -58,5 +61,7 @@ const loadingDots=(isLoading)=>{
   }
  
 }
-
+const handleShowAll=()=>{
+    handleSearch(true);
+}
 
