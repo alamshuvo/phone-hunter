@@ -35,15 +35,28 @@ const displayPhones=phones=>{
    </div>
    `;
    phoneContainer.appendChild(phoneCard);
+ 
   
  });
+ loadingDots(false);
 }
 const handleSearch=()=>{
+    loadingDots(true);
     const searchField=document.getElementById("searchField");
-    
     const searchText=searchField.value;
     loadPhone(searchText);
   
+}
+const loadingDots=(isLoading)=>{
+    const loadingElement=document.getElementById('loading');
+    
+  if (isLoading) {
+    loadingElement.classList.remove('hidden')
+  }
+  else{
+    loadingElement.classList.add('hidden')
+  }
+ 
 }
 
 
