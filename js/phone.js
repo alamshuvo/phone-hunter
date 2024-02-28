@@ -30,8 +30,8 @@ const displayPhones=(phones,isShowAll)=>{
    <figure><img src="${phone.image
    }" alt="phone" /></figure>
    <div class="card-body">
-     <h2 class="card-title">${phone.phone_name}</h2>
-     <p>If a dog chews shoes whose shoes does he choose?</p>
+     <h2 class="card-title flex justify-center">${phone.phone_name}</h2>
+     <p class="text-center">a device that uses either a system of wires along which electrical signals are sent or a system of radio signals to make it possible for you to speak to someone in another place who has a similar device: Just then, his phone rang.</p>
      <div class="card-actions justify-center">
        <button onclick="handleShowEvnet('${phone.slug}')" class="btn btn-primary">Show Details</button>
      </div>
@@ -95,5 +95,3 @@ const loadingDots=(isLoading)=>{
 const handleShowAll=()=>{
     handleSearch(true);
 }
-
-loadPhone();
